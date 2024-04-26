@@ -1,0 +1,24 @@
+/* styles.css */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+a {
+    color: blue;
+}
+
+ul {
+    list-style-type: square;
+}

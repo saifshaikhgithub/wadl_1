@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Matrix Table</h2>
+
+    <div id="matrixContainer"></div>
+
+    <input type="text" id="input1" placeholder="Enter values like 3#3#3">
+    <input type="text" id="input2" placeholder="Enter values like 3#3#3">
+    <button onclick="creatematrix()">Create Matrix</button>
+
+    <script>
+        // Function to create matrices based on user input
+        function creatematrix() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = document.getElementById('input2').value;
+
+            var values1 = input1.split('#');
+            var values2 = input2.split('#');
+
+            var rows1 = parseInt(values1[0]);
+            var cols1 = parseInt(values1[1]);
+            var rows2 = parseInt(values2[0]);
+            var cols2 = parseInt(values2[1]);
+
+            var ele1 = parseInt(values1[2]);
+            var ele2 = parseInt(values2[2]);
+
+            var matrix1 = [];
+            for (var i = 0; i < rows1; i++) {
+                var row = [];
+                for (var j = 0; j < cols1; j++) {
+                    row.push(ele1 * (j + 1));
+                }
+                matrix1.push(row);
+                ele1++;
+            }
+
+            var matrix2 = [];
+            for (var i = 0; i < rows2; i++) {
+                var row = [];
+                for (var j = 0; j < cols2; j++) {
+                    row.push(ele2 * (j + 1));
+                }
+                matrix2.push(row);
+                ele2++;
+            }
+
+            var matrix3 = [];
+            for (var i = 0; i < rows1; i++) {
+                var row = [];
+                for (var j = 0; j < cols1; j++) {
+                    if (matrix1[i][j] === matrix2[i][j]) {
+                        row.push(matrix1[i][j]);
+                    } else {
+                        row.push(matrix1[i][j] * matrix2[i][j]);
+                    }
+                }
+                matrix3.push(row);
+            }
+
+            // Transpose the matrices
+            var transposedMatrix1 = transposeMatrix(matrix1);
+            var transposedMatrix2 = transposeMatrix(matrix2);
+            var transposedMatrix3 = transposeMatrix(matrix3);
+
+            // Generate and append the tables to the container
+            var matrixContainer = document.getElementById('matrixContainer');
+            matrixContainer.innerHTML = ''; // Clear previous content
+            var matrixTable1 = generateMatrixTable(transposedMatrix1);
+            matrixContainer.appendChild(matrixTable1);
+            var matrixTable2 = generateMatrixTable(transposedMatrix2);
+            matrixContainer.appendChild(matrixTable2);
+            var matrixTable3 = generateMatrixTable(transposedMatrix3);
+            matrixContainer.appendChild(matrixTable3);
+        }
+
+        // Function to generate HTML table from matrix data
+        function generateMatrixTable(matrix) {
+            var table = document.createElement('table');
+            for (var i = 0; i < matrix.length; i++) {
+                var row = table.insertRow();
+                for (var j = 0; j < matrix[i].length; j++) {
+                    var cell = row.insertCell();
+                    cell.textContent = matrix[i][j];
+                }
+            }
+            return table;
+        }
+
+        // Function to transpose a matrix
+        function transposeMatrix(matrix) {
+            var transposedMatrix = [];
+            for (var i = 0; i < matrix[0].length; i++) {
+                transposedMatrix[i] = [];
+                for (var j = 0; j < matrix.length; j++) {
+                    transposedMatrix[i][j] = matrix[j][i];
+                }
+            }
+            return transposedMatrix;
+        }
+    </script>
+
+</body>
+
+</html>
