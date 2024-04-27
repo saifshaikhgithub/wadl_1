@@ -1,3 +1,0 @@
-drpZbfthxf5DLvb8
-mongodb+srv://worldtourmydream:rv5AOJwgTnS2EsQD@wad1.rfe0w7a.mongodb.net/?retryWrites=true&w=majority&appName=Wad1
-mongodb+srv://worldtourmydream:<password>@wad1.rfe0w7a.mongodb.net/

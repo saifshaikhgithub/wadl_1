@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container" style="padding: 10px;">
+            <div class="card">
+                <h1>Registration form</h1>
+                <form action="#">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control"
+                            placeholder="Enter your name" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control"
+                            placeholder="Enter your email" id="email"
+                            name="email">
+                    </div>
+                    <div class="form-group">
+
+                        <label for="password">password</label>
+                        <input type="password" class="form-control"
+                            placeholder="Enter your password" id="password"
+                            name="password">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" onclick="saveData()">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        function saveData(){
+            let name , email, password;
+
+            name = document.getElementById("name").value;
+            name = document.getElementById("name").value;
+        }
+    </script>
+</html>
