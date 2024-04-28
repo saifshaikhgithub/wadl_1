@@ -1,163 +1,181 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-* {
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
-
-.flex {
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: linear-gradient(#48649F, #3B5998, #3B5998);
+    border-bottom: 1px solid #253a69;
+}
+.logo{
+    position: absolute;
+    height: 63px;
+    width: 190px;
+    left: 13%;
+    padding-top: 15px;
+}
+.login_form{
     display: flex;
-    align-items: center;
+    position: absolute;
+    font-family: verdana;
+    left: 58%;
+    top: 15px;
 }
-
-.container {
-    padding: 0 15px;
-    min-height: 100vh;
-    justify-content: center;
-    background: #f0f2f5;
+.login_form .email,
+.login_form .password{
+    padding-left: 10px;
 }
-
-.facebook-page {
-    justify-content: space-between;
-    max-width: 1000px;
-    width: 100%;
+.login_form .email .font,
+.login_form .password .font{
+    font-size: 13px;
+    padding-bottom: 4px;
+    color: white;
 }
-
-.facebook-page .text {
-    margin-bottom: 90px;
-}
-
-.facebook-page h1 {
-    color: #1877f2;
-    font-size: 4rem;
-    margin-bottom: 10px;
-}
-
-.facebook-page p {
-    font-size: 1.75rem;
-    white-space: nowrap;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
-        0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-form input {
-    height: 55px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    padding: 0 14px;
-}
-
-form input:focus {
+.login_form .email input,
+.login_form .password input{
+    height: 23px;
+    width: 150px;
+    padding-left: 5px;
+    border: 1px solid black;
     outline: none;
-    border-color: #1877f2;
 }
-
-::placeholder {
-    color: #777;
-    font-size: 1.063rem;
-}
-
-.link {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-}
-
-.link .login {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: #1877f2;
-    padding: 15px 0;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.25rem;
+.login_form button{
+    height: 24px;
+    width: 50px;
     font-weight: 600;
-    transition: 0.2s ease;
+    margin-left: 15px;
+    margin-top: 20px;
+    border-radius: 2px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    background: #2d5bba;
+    border: 1px solid #224285;
+}
+.login_form button:hover{
+    background: #3B5998;
 }
 
-.link .login:hover {
-    background: #0d65d9;
-}
 
-form a {
+section{
+    height: 614px;
+    width: 100%;
+    top: 80px;
+    background: linear-gradient(#FDFDFE, #EFF1F6, #E3E6F0, #E1E5F0, #D6DBEA);
+    font-family: verdana;
+}
+.logo_body{
+    position: absolute;
+    left: 15%;
+    top: 20%;
+}
+.logo_body .like_font{
+    font-family: arial;
+    font-size: 25px;
+    margin-left: -30px;
+}
+.logo_body .font1{
+    color: #083987;
+    margin-left: 20px;   
+    margin-bottom: 5px;
+}
+.signup_body{
+    font-family: arial;
+    position: absolute;
+    left: 57%;  
+}
+.signup_body .acc_crt{
+    font-size: 40px;
+    margin: 25px 0;
+}
+.signup_body .free_hint{
+    margin: -20px 5px;
+    font-size: 18px;
+}
+.signup_body .signup_form input{
+    margin-top: 50px;
+    height: 38px;
+    width: 190px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid silver;
+    border-radius: 4px;
+}
+.signup_body .signup_form .lastname{
+    margin-left: 15px;
+}
+.signup_body .signup_form .email,
+.signup_body .signup_form .password,
+.signup_body .signup_form .password2{
+    margin-top: 20px;
+    width: 410px;
+}
+.signup_body .signup_form .birthday{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+}
+.signup_body .signup_form .birth_date{
+    margin-top: 5px;
+}
+.signup_body .signup_form .month,
+.signup_body .signup_form .day,
+.signup_body .signup_form .year{
+    height: 28px;
+}
+.signup_body .signup_form .day,
+.signup_body .signup_form .year{
+    margin-left: -5px;
+}
+.signup_body .signup_form .brth_hint{
+    font-size: 11px;
+    padding-left: 170px;
+    margin-top: -28px;
+    width: 150px;
+}
+.signup_body .signup_form a{
     text-decoration: none;
 }
-
-.link .forgot {
-    color: #1877f2;
-    font-size: 0.875rem;
-}
-
-.link .forgot:hover {
+.signup_body .signup_form a:hover{
     text-decoration: underline;
 }
-
-hr {
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin-bottom: 20px;
+.signup_body .signup_form input[type="radio"]{
+    height: 15px;
+    margin-left: -50px;
+    margin-top: 30px;
+}
+.signup_body .signup_form input[value="female"]{
+    margin-left: -100px;
+}
+.signup_body .signup_form .font{
+    margin-left: 57px;
+    margin-top: -17px;
+}
+.signup_body .signup_form .font2{
+    margin-left: 150px;
+}
+.signup_body .signup_form .agreement{
+    margin-top: 15px;
+    font-size: 12px;
+    width: 350px;
+    color: grey;
+}
+.signup_body .signup_form .signup{
     margin-top: 20px;
-}
-
-.button {
-    margin-top: 25px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.button a {
-    padding: 15px 20px;
-    background: #42b72a;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.063rem;
+    height: 38px;
+    width: 170px;
+    color: white;
+    font-size: 20px;
     font-weight: 600;
-    transition: 0.2s ease;
+    border: 1px solid #006117;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(#6fad5a, #66a150, #60974C);
 }
-
-.button a:hover {
-    background: #3ba626;
-}
-
-@media (max-width: 900px) {
-    .facebook-page {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .facebook-page .text {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 460px) {
-    .facebook-page h1 {
-        font-size: 3.5rem;
-    }
-
-    .facebook-page p {
-        font-size: 1.3rem;
-    }
-
-    form {
-        padding: 15px;
-    }
+.signup_body .signup_form .signup:hover{
+    background: linear-gradient(#74b85e, #598B45);
 }
