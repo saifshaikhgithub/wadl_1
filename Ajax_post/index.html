@@ -1,68 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W-3</title>
 </head>
-
 <body>
-    <h2>User Registration</h2>
-    <form id="registrationForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <button type="submit">Register</button>
-    </form>
+  <h2>User Registration</h2>
+  <form id="registrationForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" name="phone" required><br><br>
+    <button type="submit">Register</button>
+  </form>
 
-    <h2>User List</h2>
-    <ul id="userList"></ul>
+  <button id="getDataBtn">Get Registered Users</button>
 
-    <script>
-        document.getElementById("registrationForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
 
-            // Get form data
-            const formData = new FormData(this);
+  <h2>Registered Users</h2>
+  <ul id="userList"></ul>
 
-            // Send form data to API endpoint
-            fetch("https://jsonplaceholder.typicode.com/users", {
-                method: "POST",
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data); // Log the response to inspect its structure
-                    // Display the list of data returned by the API
-                    const userList = document.getElementById("userList");
-                    userList.innerHTML = ""; // Clear previous list
 
-                    if (Array.isArray(data)) {
-                        // If response is an array, iterate over each user object
-                        data.forEach(user => {
-                            const listItem = document.createElement("li");
-                            listItem.textContent = `Name: ${user.name}, Username: ${user.username}, Email: ${user.email}`;
-                            userList.appendChild(listItem);
-                        });
-                    } else {
-                        // If response is not an array, assume it's a single user object
-                        const listItem = document.createElement("li");
-                        listItem.textContent = `Name: ${data.name}, Username: ${data.username}, Email: ${data.email}`;
-                        userList.appendChild(listItem);
-                    }
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-        });
-    </script>
+
+  <script src="./script.js"></script>
 </body>
-
 </html>
