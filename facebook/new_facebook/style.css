@@ -11,10 +11,9 @@
 
 .control-align {
     width: 980px;
-    height: 300px;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .img-control {
@@ -70,7 +69,7 @@
 .content-control {
     background-color: #DEE2EE;
     width: 100%;
-    height: 500px;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -110,8 +109,8 @@
 .ipt {
     width: 185px;
     height: 35px;
-    margin-top: 10px;
-    margin-left: 05px;
+    /* margin-top: 10px; */
+    /* margin-left: 05px; */
     border-radius: 04px;
     border: none;
     border: 1px solid gray;
@@ -127,8 +126,9 @@
     font-size: 20px;
     border: none;
     border: 1px solid gray;
-    margin-left: 05px;
-    margin-top: 10px;
+    /* margin-left: 05px; */
+    /* margin-top: 10px; */
+    /* background-color: red;  */
 }
 
 .dropdown {
@@ -166,11 +166,11 @@
     border-radius: 04px;
     border-style: 2px solid;
     border-width: 1px;
-    border-color: green;
+    /* border-color: green; */
     padding: 10px;
     font-size: 18px;
     color: white;
-    background-color: #5C9449;
+    /* background-color: #5C9449; */
     font-family: arial;
     opacity: 0.9;
     padding: 05px;
@@ -182,4 +182,9 @@
 
 #end {
     font-size: 13px;
+}
+
+tr {
+    /* background-color: #5C9449; */
+    height: 0;
 }
