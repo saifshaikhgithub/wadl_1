@@ -1,15 +1,22 @@
 import webapp2
-import os
-
-from google.appengine.ext.webapp import template
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        path=os.path.join(os.path.dirname(__file__),"index.html")
-        context={}
-        self.response.out.write(template.render(path,context))
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.write("""
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </head>
+            <body>
+                <h1>Hello Every One</h1>
+                <h1>My Name is saif shaikh</h1>
+                <p>I am a student at Pune Institute of Computer Technology</p>
+            </body>
+            </html>
+        """)
 
-
-        
-
-app = webapp2.WSGIApplication([('/', MainPage)],debug=True)
+app = webapp2.WSGIApplication([('/', MainPage)], debug=True)

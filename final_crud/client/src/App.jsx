@@ -7,8 +7,8 @@ function App() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    cns_marks: "",
-    wadl_marks: ""
+    cns_marks: 0,
+    wadl_marks: 0
   });
   const [editMode, setEditMode] = useState(false);
   const [editUserId, setEditUserId] = useState(null);
