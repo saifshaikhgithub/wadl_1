@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Page</title>
+    </head>
+    <body>
+        <h2>User Page</h2>
+        <ul id="adduser"></ul>
+        <script>
+            // localStorage.clear();
+          const users = JSON.parse(localStorage.getItem('users'));
+
+          const adduser = document.getElementById('adduser');
+
+          users.forEach(u => {
+            const add = document.createElement('li');
+            add.textContent = `UserName: ${u.username} , Email: ${u.email}`;
+            adduser.appendChild(add);
+          });
+        </script>
+
+    </body>
+</html>

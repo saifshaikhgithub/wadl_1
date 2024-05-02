@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-container table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .form-container th,
+        .form-container td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .form-container button[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .form-container button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="form-container">
+            <h2>User Registration Form</h2>
+            <form id="register">
+                <table border="0">
+                    <tr>
+                        <td>
+                            <label for="name">Enter your name</label>
+                        </td>
+                        <td>
+                            <input type="text" id="name"
+                                placeholder="Enter your name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="mail">Enter your email</label>
+                        </td>
+                        <td>
+                            <input type="email" id="mail"
+                                placeholder="Enter your email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass">Enter your Password</label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass"
+                                placeholder="Enter your password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">REGISTER</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <script>
+        function registerUser(event) {
+            event.preventDefault();
+
+            const user = {
+                username: document.getElementById("name").value,
+                email: document.getElementById("mail").value,
+                password: document.getElementById("pass").value
+            }
+
+            if (typeof (Storage) !== undefined) {
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+                window.location.href = 'userList.html';
+            } else {
+                console.log("error occurred");
+            }
+        }
+        document.getElementById("register").addEventListener('submit', registerUser);
+    </script>
+
+    </body>
+</html>

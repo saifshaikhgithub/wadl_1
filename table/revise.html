@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix</title>
+
+    </head>
+    <body>
+
+        <input type="text" name id="input1">
+        <input type="text" name id="input2">
+
+        <button type="submit" onclick="createTable()">Submit</button>
+
+        <table id="MatrixContainer">
+
+        </table>
+    </body>
+
+    <script>
+    function createTable() {
+
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+
+        var value1 = input1.split('#');
+        var value2 = input2.split('#');
+
+        var row1 = parseInt(value1[0]);
+        var col1 = parseInt(value1[1]);
+        
+        var row2 = parseInt(value2[0]);
+        var col2 = parseInt(value2[1]);
+
+        var ele1 = parseInt(value1[2]);
+        var ele2 = parseInt(value2[2]);
+
+
+        var matrix1 = [];
+
+        for(var i = 0; i < row1; i++){
+            var row = [];
+
+            for(var j = 0; j < col1; j++){
+
+                row.push(ele1 * (j + 1));
+            }
+            matrix1.push(row);
+            ele1++;
+        }
+
+        var matrix2 = [];
+
+        for(var i = 0; i < row2; i++){
+            var row = [];
+
+            for(var j = 0; j < col2; j++){
+
+                row.push(ele2 * (j + 1));
+            }
+            matrix2.push(row);
+            ele2++;
+        }
+
+
+        var matrix3 = [];
+
+        for(var i = 0; i < row1; i++){
+            var row = [];
+
+            for(var j = 0; j < col1; j++){
+                
+                if(matrix1[i][j] === matrix2[i][j]){
+                    row.push(matrix2[i][j]);
+                }
+                else{
+                    row.push(matrix2[i][j] * matrix1[i][j]);
+                }
+                
+            }
+            matrix3.push(row);
+            
+        }
+
+        var matrixtrns1 = transpose(matrix1);
+        var matrixtrns2 = transpose(matrix2);
+        var matrixtrns3 = transpose(matrix3);
+
+
+        var matrixcontain = document.getElementById("MatrixContainer");
+
+        matrixcontain.innerHTML = '';
+
+
+        var matrixtable1 = generateTable(matrixtrns1);
+        matrixcontain.appendChild(matrixtable1);
+        var matrixtable2 = generateTable(matrixtrns2);
+        matrixcontain.appendChild(matrixtable2);
+        var matrixtable3 = generateTable(matrixtrns3);
+        matrixcontain.appendChild(matrixtable3);
+
+    }
+
+    function transpose(matrix){
+
+        var transpose = [];
+
+        for(var i = 0; i < matrix.length; i++){
+
+            transpose[i] = [];
+
+            for(var j = 0; j < matrix[i].length; j++){
+
+                transpose[i][j] = matrix[j][i];
+            }
+        }
+
+        return transpose;
+    }
+
+    function generateTable(matrix){
+
+        const tablebody = document.createElement('table');
+
+
+        for(var i = 0; i < matrix.length; i++){
+
+            var row = tablebody.insertRow();
+
+            for(var j = 0; j < matrix[i].length; j++){
+                var cell = row.insertCell();
+                cell.textContent = matrix[i][j];
+            }           
+        }
+
+        return tablebody
+    }
+
+</script>
+</html>

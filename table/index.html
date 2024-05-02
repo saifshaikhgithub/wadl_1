@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Table</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix Table</title>
+        <style>
         table {
             border-collapse: collapse;
             width: 50%;
@@ -14,28 +14,24 @@
 
         th,
         td {
-            border: 1px solid #dddddd;
+            border: 3px solid #dddddd;
             text-align: center;
             padding: 8px;
         }
-
-        th {
-            background-color: #f2f2f2;
-        }
     </style>
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <h2>Matrix Table</h2>
+        <h2>Matrix Table</h2>
 
-    <div id="matrixContainer"></div>
+        <div id="matrixContainer"></div>
 
-    <input type="text" id="input1" placeholder="Enter values like 3#3#3">
-    <input type="text" id="input2" placeholder="Enter values like 3#3#3">
-    <button onclick="creatematrix()">Create Matrix</button>
+        <input type="text" id="input1" placeholder="Enter values like 3#3#3">
+        <input type="text" id="input2" placeholder="Enter values like 3#3#3">
+        <button onclick="creatematrix()">Create Matrix</button>
 
-    <script>
+        <script>
         // Function to create matrices based on user input
         function creatematrix() {
             var input1 = document.getElementById('input1').value;
@@ -127,6 +123,6 @@
         }
     </script>
 
-</body>
+    </body>
 
 </html>

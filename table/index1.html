@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix</title>
+
+        <style>
+        table{
+            border-collapse: collapse;
+            margin: 30px auto;
+            width: 50%;
+        }
+        th, td{
+            text-align: center;
+            border: 2px solid black; 
+            /* padding: 8px; */
+
+        }
+    </style>
+    </head>
+    <body>
+        <div id="matrixContainer">
+
+        </div>
+
+        <label for>Enter the data for the Matrix 1</label>
+        <input type="text" id="input1" placeholder="3#3#3">
+        <label for>Enter the data for the Matrix 2</label>
+        <input type="text" id="input2" placeholder="3#3#3">
+
+        <button onclick="createMarix()">Create the tables</button>
+    </body>
+
+    <script>
+        function createMarix(){
+            var input1 = document.getElementById("input1").value;
+            var input2 = document.getElementById("input2").value;
+
+            var value1 = input1.split('#');
+            var value2 = input2.split('#');
+
+            var row1 = parseInt(value1[0]);
+            var col1 = parseInt(value1[1]);
+
+            var row2 = parseInt(value2[0]);
+            var col2 = parseInt(value2[1]);
+
+            var ele1 = parseInt(value1[2]);
+            var ele2 = parseInt(value2[2]);
+
+
+            // creating the matrixes
+
+            var matrix1 = [];
+
+            for(var i = 0; i < row1; i++){
+                var row = [];
+                for(var j = 0; j < col1; j++){
+                    row.push(ele1*(j + 1));
+                }
+                ele1++;
+                matrix1.push(row);
+            }
+
+
+            var matrix2 = [];
+
+            for(var i = 0; i < row2; i++){
+                var row = [];
+                for(var j = 0; j < col2; j++){
+                    row.push(ele2*(j + 1));
+                }
+                ele2++;
+                matrix2.push(row);
+            }
+            var matrix3 = [];
+
+            for(var i = 0; i < row1; i++){
+                var row = [];
+                for(var j = 0; j < col1; j++){
+                    if(matrix1[i][j] === matrix2[i][j]){
+                        row.push(matrix1[i][j]);
+                    }
+                    else{
+                        row.push(matrix1[i][j]*matrix2[i][j])
+                    }
+                }
+                matrix3.push(row);
+            }
+            
+            var matrix1trns = transposematrix(matrix1);
+            var matrix2trns = transposematrix(matrix2);
+            var matrix3trns = transposematrix(matrix3);
+
+
+            var matrixContainer = document.getElementById("matrixContainer");
+
+
+            matrixContainer.innerHTML = '';
+
+            var matrixtable1 = generateMatrixTable(matrix1trns);
+            matrixContainer.appendChild(matrixtable1);
+
+            var matrixtable2 = generateMatrixTable(matrix2trns);
+            matrixContainer.appendChild(matrixtable2);
+
+            var matrixtable3 = generateMatrixTable(matrix3trns);
+            matrixContainer.appendChild(matrixtable3);
+        }   
+
+
+
+
+        function generateMatrixTable    (matrix){
+
+            var table = document.createElement("table");
+
+            for(var i = 0; i < matrix.length; i++){
+
+                var row = table.insertRow();
+
+                for(var j = 0; j < matrix[i].length; j++){
+
+                    var cell = row.insertCell();
+                    cell.textContent = matrix[i][j];
+                }
+            }
+
+            return table;
+        }
+        
+          function transposematrix(matrix){
+
+                var transposeMatrix = [];
+
+                for(var i = 0; i < matrix[0].length; i++){
+
+                    transposeMatrix[i] = [];
+
+                    for(var j = 0; j < matrix.length; j++){
+                        transposeMatrix[i][j] = matrix[j][i];
+                    }
+                }
+
+                return transposeMatrix;
+            }
+
+    </script>
+</html>

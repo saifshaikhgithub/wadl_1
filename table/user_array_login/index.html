@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Storage</title>
+    </head>
+    <body>
+
+        <form id="registerUser">
+            <table border="2">
+                <thead>
+                    <th colspan="2">
+                        User Rgistration Form
+                    </th>
+                </thead>
+                <tr>
+                    <td>
+                        <label>Enter your name</label>
+                        <input type="text" name id="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Enter your email</label>
+                        <input type="email" name id="mail">
+                    </td>
+                </tr>
+                <thead>
+                    <th colspan="2">
+                        <button type="submit"> Register
+                        </button>
+                    </th>
+                </thead>
+            </table>
+        </form>
+
+        <script>
+            function register(event){
+                event.preventDefault();
+
+                var username = document.getElementById('name').value;
+                var mail = document.getElementById('mail').value;
+
+                const user = {
+                    name: username,
+                    email: mail
+                };
+
+
+                if(typeof (Storage) !== undefined){
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    users.push(user);
+                    localStorage.setItem('users', JSON.stringify(users));
+                    window.location.href = 'userList.html';
+                }
+                else{
+                    console.log('error');
+                }
+            }
+            document.getElementById('registerUser').addEventListener('submit', register);
+        </script>
+    </body>
+</html>
